@@ -3,3 +3,13 @@ body{
     
 }
 
+
+div#board{
+    background: url(img/board.jpg) no-repeat;
+    position: relative;
+    height: 863px;
+    width: 1024px;
+    margin: auto;
+
+
+}
