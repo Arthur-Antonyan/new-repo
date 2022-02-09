@@ -1,0 +1,223 @@
+:root {
+  --borderColor: #e67e22;
+  --bgColor: #8a552b;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #151515;
+  /* background: linear-gradient(0deg, #333, #000); */
+}
+.board {
+  display: grid;
+  grid-template-columns: 15% 15% 15%;
+  grid-template-rows: auto auto auto;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  margin-top: 15%;
+  grid-gap: 10px;
+}
+.board > div {
+  background-color: var(--bgColor);
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  box-shadow: 0 0 0 4px #353535, 0 0 0 5px #3e3e3e, inset 0 0 10px rgba(0, 0, 0, 1);
+  /* border-radius: 20px; */
+}
+.board > div:focus {
+  outline: none;
+}
+.check {
+  grid-column: 3 / 3;
+  cursor: pointer;
+}
+.change {
+  grid-column: 1 / 2;
+  cursor: pointer;
+}
+.modal {
+  width: 200px;
+  height: 50px;
+  background-color: rgb(151, 115, 115);
+  display: flex;
+  flex-direction: column-reverse;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  visibility: hidden;
+}
+.modal1 {
+  width: 200px;
+  height: 50px;
+  background-color: rgb(131, 52, 52);
+  display: flex;
+  flex-direction: column-reverse;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  visibility: hidden;
+}
+.stopwatch {
+  position: relative;
+  float: right;
+}
+
+.desk,
+.deskHard {
+  /* border: 1px solid var(--borderColor); */
+
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  height: 150px;
+  position: relative;
+  float: right;
+  clear: right;
+  box-shadow: 0 0 0 4px #353535, 0 0 0 5px #3e3e3e, inset 0 0 10px rgba(0, 0, 0, 1);
+  border-radius: 20px;
+}
+
+.results li {
+  list-style-type: none;
+}
+.score,
+.scoreHard {
+  list-style-type: none;
+}
+
+.hard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  margin-top: 10%;
+  /* background: linear-gradient(0deg, #333, #000); */
+  /* background-color: #151515; */
+  /* background-color: linear-gradient(0deg, #e67e22, #f39c12); */
+  width: 50%;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  /* grid-gap: 10px; */
+}
+.grid {
+  /* border: 1px solid var(--borderColor); */
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  box-shadow: 0 0 0 2px #353535, 0 0 0 5px #3e3e3e, inset 0 0 5px rgba(0, 0, 0, 1);
+  /* border-radius: 15px; */
+}
+.grid > div {
+  border: 1px solid rgb(10, 10, 10);
+  width: 100%;
+  height: 45px;
+  margin: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  border-top: none;
+  background-size: 50%;
+}
+.grid > div:focus {
+  outline: none;
+}
+.grid > div:nth-child(n + 2),
+.grid > div:nth-child(1) {
+  border-left: none;
+}
+
+.grid > div:nth-child(3n + 3) {
+  border-right: none;
+}
+.grid > div:nth-child(1n + 7) {
+  border-bottom: none;
+}
+.checkHard {
+  grid-row: 9;
+  grid-column: 1/2;
+}
+.addRandom {
+  grid-row: 9;
+  grid-column: 3/4;
+}
+
+.center {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+button {
+  cursor: pointer;
+}
+input[type='checkbox'] {
+  margin: 10px;
+  position: relative;
+  width: 120px;
+  height: 40px;
+  -webkit-appearance: none;
+  background: linear-gradient(0deg, #333, #000);
+  outline: none;
+  border-radius: 20px;
+  box-shadow: 0 0 0 4px #353535, 0 0 0 5px #3e3e3e, inset 0 0 10px rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+input:checked[type='checkbox']:nth-of-type(1) {
+  background: linear-gradient(0deg, #e67e22, #f39c12);
+  box-shadow: 0 0 0 4px #353535, 0 0 0 5px #3e3e3e, inset 0 0 10px rgba(0, 0, 0, 1);
+}
+
+input[type='checkbox']:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 40px;
+  background: linear-gradient(0deg, #000, #6b6b6b);
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px #232323;
+  transform: scale(0.98, 0.96);
+  transition: 0.5s;
+}
+
+input:checked[type='checkbox']:before {
+  left: 40px;
+}
+
+input[type='checkbox']:after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 70px;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(0deg, #6b6b6b, #000);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+input:checked[type='checkbox']:after {
+  left: 110px;
+}
+.grid:nth-child(odd) {
+  background-color: #5a3a1f;
+}
+.grid:nth-child(even) {
+  background-color: #a57044;
+}
